@@ -1,0 +1,1182 @@
+
+================================================================================
+INSPECTING RAW WEATHER FOLDER
+================================================================================
+
+------------------------------------------------------------
+FILE: 4238094.csv
+------------------------------------------------------------
+Shape: (45980, 9)
+Columns: ['STATION', 'NAME', 'LATITUDE', 'LONGITUDE', 'ELEVATION', 'DATE', 'TAVG', 'TMAX', 'TMIN']
+
+Data Types:
+STATION       object
+NAME          object
+LATITUDE     float64
+LONGITUDE    float64
+ELEVATION    float64
+DATE          object
+TAVG         float64
+TMAX         float64
+TMIN         float64
+dtype: object
+
+Missing Values:
+STATION          0
+NAME             0
+LATITUDE         0
+LONGITUDE        0
+ELEVATION        0
+DATE             0
+TAVG         35760
+TMAX          8013
+TMIN          8113
+dtype: int64
+
+Date Range (DATE):
+Min: 2009-01-01 00:00:00
+Max: 2022-12-31 00:00:00
+
+First 5 Rows:
+       STATION                               NAME  LATITUDE  LONGITUDE  ELEVATION       DATE  TAVG  TMAX  TMIN
+0  UKE00105888  EDINBURGH ROYAL BOTANIC GARDE, UK   55.9667      -3.21       26.0 2009-01-01   NaN   3.8  -2.4
+1  UKE00105888  EDINBURGH ROYAL BOTANIC GARDE, UK   55.9667      -3.21       26.0 2009-01-02   NaN   3.5  -1.5
+2  UKE00105888  EDINBURGH ROYAL BOTANIC GARDE, UK   55.9667      -3.21       26.0 2009-01-03   NaN   2.7  -2.4
+3  UKE00105888  EDINBURGH ROYAL BOTANIC GARDE, UK   55.9667      -3.21       26.0 2009-01-04   NaN   4.0  -1.5
+4  UKE00105888  EDINBURGH ROYAL BOTANIC GARDE, UK   55.9667      -3.21       26.0 2009-01-05   NaN   3.0  -2.2
+
+================================================================================
+INSPECTING RAW ELECTRICITY FOLDER
+================================================================================
+
+------------------------------------------------------------
+FILE: historic_demand_2009_2024.csv
+------------------------------------------------------------
+Shape: (279264, 24)
+Columns: ['Unnamed: 0', 'settlement_date', 'settlement_period', 'nd', 'tsd', 'england_wales_demand', 'embedded_wind_generation', 'embedded_wind_capacity', 'embedded_solar_generation', 'embedded_solar_capacity', 'non_bm_stor', 'pump_storage_pumping', 'ifa_flow', 'ifa2_flow', 'britned_flow', 'moyle_flow', 'east_west_flow', 'nemo_flow', 'nsl_flow', 'eleclink_flow', 'scottish_transfer', 'viking_flow', 'greenlink_flow', 'is_holiday']
+
+Data Types:
+Unnamed: 0                     int64
+settlement_date               object
+settlement_period              int64
+nd                             int64
+tsd                            int64
+england_wales_demand           int64
+embedded_wind_generation       int64
+embedded_wind_capacity         int64
+embedded_solar_generation      int64
+embedded_solar_capacity        int64
+non_bm_stor                    int64
+pump_storage_pumping           int64
+ifa_flow                       int64
+ifa2_flow                      int64
+britned_flow                   int64
+moyle_flow                     int64
+east_west_flow                 int64
+nemo_flow                      int64
+nsl_flow                     float64
+eleclink_flow                float64
+scottish_transfer            float64
+viking_flow                  float64
+greenlink_flow               float64
+is_holiday                     int64
+dtype: object
+
+Missing Values:
+Unnamed: 0                        0
+settlement_date                   0
+settlement_period                 0
+nd                                0
+tsd                               0
+england_wales_demand              0
+embedded_wind_generation          0
+embedded_wind_capacity            0
+embedded_solar_generation         0
+embedded_solar_capacity           0
+non_bm_stor                       0
+pump_storage_pumping              0
+ifa_flow                          0
+ifa2_flow                         0
+britned_flow                      0
+moyle_flow                        0
+east_west_flow                    0
+nemo_flow                         0
+nsl_flow                     175296
+eleclink_flow                175296
+scottish_transfer            245424
+viking_flow                  245424
+greenlink_flow               262944
+is_holiday                        0
+dtype: int64
+
+Date Range (settlement_date):
+Min: 2009-01-01 00:00:00
+Max: 2024-12-05 00:00:00
+
+First 5 Rows:
+   Unnamed: 0 settlement_date  settlement_period     nd  ...  scottish_transfer  viking_flow  greenlink_flow  is_holiday
+0           0      2009-01-01                  1  37910  ...                NaN          NaN             NaN           1
+1           1      2009-01-01                  2  38047  ...                NaN          NaN             NaN           1
+2           2      2009-01-01                  3  37380  ...                NaN          NaN             NaN           1
+3           3      2009-01-01                  4  36426  ...                NaN          NaN             NaN           1
+4           4      2009-01-01                  5  35687  ...                NaN          NaN             NaN           1
+
+[5 rows x 24 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_2009_2024_noNaN.csv
+------------------------------------------------------------
+Shape: (278512, 19)
+Columns: ['settlement_date', 'settlement_period', 'period_hour', 'nd', 'tsd', 'england_wales_demand', 'embedded_wind_generation', 'embedded_wind_capacity', 'embedded_solar_generation', 'embedded_solar_capacity', 'non_bm_stor', 'pump_storage_pumping', 'ifa_flow', 'ifa2_flow', 'britned_flow', 'moyle_flow', 'east_west_flow', 'nemo_flow', 'is_holiday']
+
+Data Types:
+settlement_date              object
+settlement_period             int64
+period_hour                  object
+nd                            int64
+tsd                           int64
+england_wales_demand          int64
+embedded_wind_generation      int64
+embedded_wind_capacity        int64
+embedded_solar_generation     int64
+embedded_solar_capacity       int64
+non_bm_stor                   int64
+pump_storage_pumping          int64
+ifa_flow                      int64
+ifa2_flow                     int64
+britned_flow                  int64
+moyle_flow                    int64
+east_west_flow                int64
+nemo_flow                     int64
+is_holiday                    int64
+dtype: object
+
+Missing Values:
+settlement_date              0
+settlement_period            0
+period_hour                  0
+nd                           0
+tsd                          0
+england_wales_demand         0
+embedded_wind_generation     0
+embedded_wind_capacity       0
+embedded_solar_generation    0
+embedded_solar_capacity      0
+non_bm_stor                  0
+pump_storage_pumping         0
+ifa_flow                     0
+ifa2_flow                    0
+britned_flow                 0
+moyle_flow                   0
+east_west_flow               0
+nemo_flow                    0
+is_holiday                   0
+dtype: int64
+
+Date Range (settlement_date):
+Min: 2009-01-01 00:00:00
+Max: 2024-12-05 23:30:00
+
+First 5 Rows:
+      settlement_date  settlement_period period_hour     nd  ...  moyle_flow  east_west_flow  nemo_flow  is_holiday
+0 2009-01-01 00:00:00                  1     0:00:00  37910  ...        -161               0          0           1
+1 2009-01-01 00:30:00                  2     0:30:00  38047  ...        -160               0          0           1
+2 2009-01-01 01:00:00                  3     1:00:00  37380  ...        -160               0          0           1
+3 2009-01-01 01:30:00                  4     1:30:00  36426  ...        -160               0          0           1
+4 2009-01-01 02:00:00                  5     2:00:00  35687  ...        -160               0          0           1
+
+[5 rows x 19 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2009.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2009-01-01 00:00:00
+Max: 2009-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2009-01-01                  1  37910  38704  ...             0        -161               0          0
+1      2009-01-01                  2  38047  38964  ...             0        -160               0          0
+2      2009-01-01                  3  37380  38651  ...             0        -160               0          0
+3      2009-01-01                  4  36426  37775  ...             0        -160               0          0
+4      2009-01-01                  5  35687  37298  ...             0        -160               0          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2010.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2010-01-01 00:00:00
+Max: 2010-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2010-01-01                  1  36453  37593  ...             0        -234               0          0
+1      2010-01-01                  2  36680  37739  ...             0        -236               0          0
+2      2010-01-01                  3  36343  37467  ...             0        -236               0          0
+3      2010-01-01                  4  35362  36489  ...             0        -236               0          0
+4      2010-01-01                  5  34366  35563  ...             0        -236               0          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2011.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2011-01-01 00:00:00
+Max: 2011-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2011-01-01                  1  34606  35648  ...             0        -382               0          0
+1      2011-01-01                  2  35092  36089  ...             0        -381               0          0
+2      2011-01-01                  3  34725  36256  ...             0        -382               0          0
+3      2011-01-01                  4  33649  35628  ...             0        -381               0          0
+4      2011-01-01                  5  32644  34752  ...             0        -382               0          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2012.csv
+------------------------------------------------------------
+Shape: (17568, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2012-01-01 00:00:00
+Max: 2012-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2012-01-01                  1  30263  31262  ...           993           0               0          0
+1      2012-01-01                  2  30550  31163  ...           992           0               0          0
+2      2012-01-01                  3  29974  30594  ...           993           0               0          0
+3      2012-01-01                  4  28664  30011  ...           992           0               0          0
+4      2012-01-01                  5  27695  29441  ...           993           0               0          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2013.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2013-01-01 00:00:00
+Max: 2013-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2013-01-01                  1  30565  32789  ...           993        -251            -250          0
+1      2013-01-01                  2  31155  33372  ...           993        -251            -250          0
+2      2013-01-01                  3  30806  33017  ...           993        -251            -251          0
+3      2013-01-01                  4  29706  31917  ...           993        -251            -250          0
+4      2013-01-01                  5  28528  30731  ...           993        -251            -250          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2014.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2014-01-01 00:00:00
+Max: 2014-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2014-01-01                  1  30008  31920  ...          1000        -157            -285          0
+1      2014-01-01                  2  30589  32491  ...          1000        -157            -285          0
+2      2014-01-01                  3  30306  32521  ...          1000        -157            -285          0
+3      2014-01-01                  4  29280  31735  ...          1000        -157            -285          0
+4      2014-01-01                  5  28174  30661  ...           880        -157            -313          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2015.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2015-01-01 00:00:00
+Max: 2015-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2015-01-01                  1  28726  29490  ...           854         -25            -121          0
+1      2015-01-01                  2  29391  30135  ...           903           3            -121          0
+2      2015-01-01                  3  29231  30448  ...           888         -53            -121          0
+3      2015-01-01                  4  28095  29381  ...           864         -40             -56          0
+4      2015-01-01                  5  26896  28667  ...           881         -82              -7          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2016.csv
+------------------------------------------------------------
+Shape: (17568, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2016-01-01 00:00:00
+Max: 2016-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2016-01-01                  1  27700  28414  ...           870          31             105          0
+1      2016-01-01                  2  28379  29007  ...           881          19              27          0
+2      2016-01-01                  3  28155  29063  ...           871          76              36          0
+3      2016-01-01                  4  27147  28326  ...           887          -7              65          0
+4      2016-01-01                  5  26154  27348  ...           880        -101              20          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2017.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2017-01-01 00:00:00
+Max: 2017-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2017-01-01                  1  27316  28013  ...           857         295             233          0
+1      2017-01-01                  2  27900  28539  ...           874         297             287          0
+2      2017-01-01                  3  27588  28279  ...           818         297             287          0
+3      2017-01-01                  4  26456  27819  ...           822         297             287          0
+4      2017-01-01                  5  25429  27565  ...           854         297             281          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2018.csv
+------------------------------------------------------------
+Shape: (17520, 17)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2018-01-01 00:00:00
+Max: 2018-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  BRITNED_FLOW  MOYLE_FLOW  EAST_WEST_FLOW  NEMO_FLOW
+0      2018-01-01                  1  25593  26501  ...           715         205             432          0
+1      2018-01-01                  2  26349  27207  ...           709         201             432          0
+2      2018-01-01                  3  26240  27480  ...           720         211             432          0
+3      2018-01-01                  4  25292  26760  ...           727         211             432          0
+4      2018-01-01                  5  24416  26162  ...           678         211             432          0
+
+[5 rows x 17 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2019.csv
+------------------------------------------------------------
+Shape: (17520, 19)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW', 'NSL_FLOW', 'ELECLINK_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+NSL_FLOW                      int64
+ELECLINK_FLOW                 int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+NSL_FLOW                     0
+ELECLINK_FLOW                0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2019-01-01 00:00:00
+Max: 2019-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  EAST_WEST_FLOW  NEMO_FLOW  NSL_FLOW  ELECLINK_FLOW
+0      2019-01-01                  1  23808  25291  ...            -250          0         0              0
+1      2019-01-01                  2  24402  25720  ...            -236          0         0              0
+2      2019-01-01                  3  24147  25495  ...            -311          0         0              0
+3      2019-01-01                  4  23197  24590  ...            -315          0         0              0
+4      2019-01-01                  5  22316  24346  ...            -463          0         0              0
+
+[5 rows x 19 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2020.csv
+------------------------------------------------------------
+Shape: (17568, 19)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW', 'NSL_FLOW', 'ELECLINK_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+NSL_FLOW                      int64
+ELECLINK_FLOW                 int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+NSL_FLOW                     0
+ELECLINK_FLOW                0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2020-01-01 00:00:00
+Max: 2020-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  EAST_WEST_FLOW  NEMO_FLOW  NSL_FLOW  ELECLINK_FLOW
+0      2020-01-01                  1  26340  27153  ...             -47        854         0              0
+1      2020-01-01                  2  26921  27684  ...               0        854         0              0
+2      2020-01-01                  3  26569  27240  ...               0        854         0              0
+3      2020-01-01                  4  25754  26435  ...               0        854         0              0
+4      2020-01-01                  5  25075  25824  ...             -60        854         0              0
+
+[5 rows x 19 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2021.csv
+------------------------------------------------------------
+Shape: (17520, 19)
+Columns: ['SETTLEMENT_DATE', 'SETTLEMENT_PERIOD', 'ND', 'TSD', 'ENGLAND_WALES_DEMAND', 'EMBEDDED_WIND_GENERATION', 'EMBEDDED_WIND_CAPACITY', 'EMBEDDED_SOLAR_GENERATION', 'EMBEDDED_SOLAR_CAPACITY', 'NON_BM_STOR', 'PUMP_STORAGE_PUMPING', 'IFA_FLOW', 'IFA2_FLOW', 'BRITNED_FLOW', 'MOYLE_FLOW', 'EAST_WEST_FLOW', 'NEMO_FLOW', 'NSL_FLOW', 'ELECLINK_FLOW']
+
+Data Types:
+SETTLEMENT_DATE              object
+SETTLEMENT_PERIOD             int64
+ND                            int64
+TSD                           int64
+ENGLAND_WALES_DEMAND          int64
+EMBEDDED_WIND_GENERATION      int64
+EMBEDDED_WIND_CAPACITY        int64
+EMBEDDED_SOLAR_GENERATION     int64
+EMBEDDED_SOLAR_CAPACITY       int64
+NON_BM_STOR                   int64
+PUMP_STORAGE_PUMPING          int64
+IFA_FLOW                      int64
+IFA2_FLOW                     int64
+BRITNED_FLOW                  int64
+MOYLE_FLOW                    int64
+EAST_WEST_FLOW                int64
+NEMO_FLOW                     int64
+NSL_FLOW                      int64
+ELECLINK_FLOW                 int64
+dtype: object
+
+Missing Values:
+SETTLEMENT_DATE              0
+SETTLEMENT_PERIOD            0
+ND                           0
+TSD                          0
+ENGLAND_WALES_DEMAND         0
+EMBEDDED_WIND_GENERATION     0
+EMBEDDED_WIND_CAPACITY       0
+EMBEDDED_SOLAR_GENERATION    0
+EMBEDDED_SOLAR_CAPACITY      0
+NON_BM_STOR                  0
+PUMP_STORAGE_PUMPING         0
+IFA_FLOW                     0
+IFA2_FLOW                    0
+BRITNED_FLOW                 0
+MOYLE_FLOW                   0
+EAST_WEST_FLOW               0
+NEMO_FLOW                    0
+NSL_FLOW                     0
+ELECLINK_FLOW                0
+dtype: int64
+
+Date Range (SETTLEMENT_DATE):
+Min: 2021-01-01 00:00:00
+Max: 2021-12-31 00:00:00
+
+First 5 Rows:
+  SETTLEMENT_DATE  SETTLEMENT_PERIOD     ND    TSD  ...  EAST_WEST_FLOW  NEMO_FLOW  NSL_FLOW  ELECLINK_FLOW
+0      2021-01-01                  1  28354  28969  ...             203        999         0              0
+1      2021-01-01                  2  28501  29114  ...             203        999         0              0
+2      2021-01-01                  3  27759  28376  ...             202        999         0              0
+3      2021-01-01                  4  26912  27749  ...             203       1000         0              0
+4      2021-01-01                  5  26004  27178  ...             203       1000         0              0
+
+[5 rows x 19 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2022.csv
+------------------------------------------------------------
+Shape: (17520, 19)
+Columns: ['settlement_date', 'settlement_period', 'nd', 'tsd', 'england_wales_demand', 'embedded_wind_generation', 'embedded_wind_capacity', 'embedded_solar_generation', 'embedded_solar_capacity', 'non_bm_stor', 'pump_storage_pumping', 'ifa_flow', 'ifa2_flow', 'britned_flow', 'moyle_flow', 'east_west_flow', 'nemo_flow', 'nsl_flow', 'eleclink_flow']
+
+Data Types:
+settlement_date              object
+settlement_period             int64
+nd                            int64
+tsd                           int64
+england_wales_demand          int64
+embedded_wind_generation      int64
+embedded_wind_capacity        int64
+embedded_solar_generation     int64
+embedded_solar_capacity       int64
+non_bm_stor                   int64
+pump_storage_pumping          int64
+ifa_flow                      int64
+ifa2_flow                     int64
+britned_flow                  int64
+moyle_flow                    int64
+east_west_flow                int64
+nemo_flow                     int64
+nsl_flow                      int64
+eleclink_flow                 int64
+dtype: object
+
+Missing Values:
+settlement_date              0
+settlement_period            0
+nd                           0
+tsd                          0
+england_wales_demand         0
+embedded_wind_generation     0
+embedded_wind_capacity       0
+embedded_solar_generation    0
+embedded_solar_capacity      0
+non_bm_stor                  0
+pump_storage_pumping         0
+ifa_flow                     0
+ifa2_flow                    0
+britned_flow                 0
+moyle_flow                   0
+east_west_flow               0
+nemo_flow                    0
+nsl_flow                     0
+eleclink_flow                0
+dtype: int64
+
+Date Range (settlement_date):
+Min: 2022-01-01 00:00:00
+Max: 2022-12-31 00:00:00
+
+First 5 Rows:
+  settlement_date  settlement_period     nd    tsd  ...  east_west_flow  nemo_flow  nsl_flow  eleclink_flow
+0      2022-01-01                  1  21940  23275  ...             384       -100       210              0
+1      2022-01-01                  2  22427  23489  ...             403       -104       176              0
+2      2022-01-01                  3  21896  23672  ...             440         -4      -205              0
+3      2022-01-01                  4  20693  23272  ...             387         -6      -283              0
+4      2022-01-01                  5  19481  23958  ...             476       -561      -686              0
+
+[5 rows x 19 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2023.csv
+------------------------------------------------------------
+Shape: (17520, 21)
+Columns: ['settlement_date', 'settlement_period', 'nd', 'tsd', 'england_wales_demand', 'embedded_wind_generation', 'embedded_wind_capacity', 'embedded_solar_generation', 'embedded_solar_capacity', 'non_bm_stor', 'pump_storage_pumping', 'scottish_transfer', 'ifa_flow', 'ifa2_flow', 'britned_flow', 'moyle_flow', 'east_west_flow', 'nemo_flow', 'nsl_flow', 'eleclink_flow', 'viking_flow']
+
+Data Types:
+settlement_date              object
+settlement_period             int64
+nd                            int64
+tsd                           int64
+england_wales_demand          int64
+embedded_wind_generation      int64
+embedded_wind_capacity        int64
+embedded_solar_generation     int64
+embedded_solar_capacity       int64
+non_bm_stor                   int64
+pump_storage_pumping          int64
+scottish_transfer             int64
+ifa_flow                      int64
+ifa2_flow                     int64
+britned_flow                  int64
+moyle_flow                    int64
+east_west_flow                int64
+nemo_flow                     int64
+nsl_flow                      int64
+eleclink_flow                 int64
+viking_flow                   int64
+dtype: object
+
+Missing Values:
+settlement_date              0
+settlement_period            0
+nd                           0
+tsd                          0
+england_wales_demand         0
+embedded_wind_generation     0
+embedded_wind_capacity       0
+embedded_solar_generation    0
+embedded_solar_capacity      0
+non_bm_stor                  0
+pump_storage_pumping         0
+scottish_transfer            0
+ifa_flow                     0
+ifa2_flow                    0
+britned_flow                 0
+moyle_flow                   0
+east_west_flow               0
+nemo_flow                    0
+nsl_flow                     0
+eleclink_flow                0
+viking_flow                  0
+dtype: int64
+
+Date Range (settlement_date):
+Min: 2023-01-01 00:00:00
+Max: 2023-12-31 00:00:00
+
+First 5 Rows:
+  settlement_date  settlement_period     nd    tsd  ...  nemo_flow  nsl_flow  eleclink_flow  viking_flow
+0      2023-01-01                  1  21043  24680  ...        253       235            998            0
+1      2023-01-01                  2  21756  25289  ...        252       157            998            0
+2      2023-01-01                  3  21348  25269  ...        253      -219            999            0
+3      2023-01-01                  4  20586  24574  ...        254      -298            999            0
+4      2023-01-01                  5  19781  24135  ...        253      -679            998            0
+
+[5 rows x 21 columns]
+
+------------------------------------------------------------
+FILE: historic_demand_year_2024.csv
+------------------------------------------------------------
+Shape: (16320, 22)
+Columns: ['settlement_date', 'settlement_period', 'nd', 'tsd', 'england_wales_demand', 'embedded_wind_generation', 'embedded_wind_capacity', 'embedded_solar_generation', 'embedded_solar_capacity', 'non_bm_stor', 'pump_storage_pumping', 'scottish_transfer', 'ifa_flow', 'ifa2_flow', 'britned_flow', 'moyle_flow', 'east_west_flow', 'nemo_flow', 'nsl_flow', 'eleclink_flow', 'viking_flow', 'greenlink_flow']
+
+Data Types:
+settlement_date              object
+settlement_period             int64
+nd                            int64
+tsd                           int64
+england_wales_demand          int64
+embedded_wind_generation      int64
+embedded_wind_capacity        int64
+embedded_solar_generation     int64
+embedded_solar_capacity       int64
+non_bm_stor                   int64
+pump_storage_pumping          int64
+scottish_transfer             int64
+ifa_flow                      int64
+ifa2_flow                     int64
+britned_flow                  int64
+moyle_flow                    int64
+east_west_flow                int64
+nemo_flow                     int64
+nsl_flow                      int64
+eleclink_flow                 int64
+viking_flow                   int64
+greenlink_flow                int64
+dtype: object
+
+Missing Values:
+settlement_date              0
+settlement_period            0
+nd                           0
+tsd                          0
+england_wales_demand         0
+embedded_wind_generation     0
+embedded_wind_capacity       0
+embedded_solar_generation    0
+embedded_solar_capacity      0
+non_bm_stor                  0
+pump_storage_pumping         0
+scottish_transfer            0
+ifa_flow                     0
+ifa2_flow                    0
+britned_flow                 0
+moyle_flow                   0
+east_west_flow               0
+nemo_flow                    0
+nsl_flow                     0
+eleclink_flow                0
+viking_flow                  0
+greenlink_flow               0
+dtype: int64
+
+Date Range (settlement_date):
+Min: 2024-01-01 00:00:00
+Max: 2024-12-05 00:00:00
+
+First 5 Rows:
+  settlement_date  settlement_period     nd    tsd  ...  nsl_flow  eleclink_flow  viking_flow  greenlink_flow
+0      2024-01-01                  1  21783  23466  ...        62            998          572               0
+1      2024-01-01                  2  22521  24103  ...       -15            998          575               0
+2      2024-01-01                  3  22194  24754  ...      -396            997          422               0
+3      2024-01-01                  4  21510  24505  ...      -473            997          401               0
+4      2024-01-01                  5  20619  23977  ...      -856            998           28               0
+
+[5 rows x 22 columns]
