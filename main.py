@@ -66,3 +66,43 @@ This application forecasts daily UK electricity demand using:
 The system was developed following a strict chronological evaluation protocol.
 """)
 
+# ============================================
+# PREDICTION FUNCTIONS
+# ============================================
+def predict_xgb(date):
+    row = df[df["DATE"] == pd.to_datetime(date)]
+    if row.empty:
+        return None
+    X = row[features]
+    return float(xgb_model.predict(X)[0])
+
+def predict_lstm(date):
+    idx = df[df["DATE"] == pd.to_datetime(date)].index
+    if len(idx) == 0 or idx[0] < LOOKBACK:
+        return None
+
+    idx = idx[0]
+    sequence = df.iloc[idx-LOOKBACK:idx][features].copy()
+    sequence[features] = feature_scaler.transform(sequence[features])
+    X = np.array([sequence.values])
+    pred_scaled = lstm_model.predict(X, verbose=0)[0][0]
+    pred = target_scaler.inverse_transform([[pred_scaled]])[0][0]
+    return float(pred)
+
+# ============================================
+# MAKE PREDICTION
+# ============================================
+if model_choice == "XGBoost Multivariate":
+    prediction = predict_xgb(selected_date)
+else:
+    prediction = predict_lstm(selected_date)
+
+st.subheader("Forecast Result")
+
+if prediction is None:
+    st.warning("Not enough historical data available for selected date.")
+else:
+    st.metric(
+        label="Predicted Daily Demand (MW)",
+        value=f"{prediction:,.0f}"
+    )
