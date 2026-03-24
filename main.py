@@ -106,3 +106,21 @@ else:
         label="Predicted Daily Demand (MW)",
         value=f"{prediction:,.0f}"
     )
+
+# ============================================
+# DOWNLOAD LIVE FORECAST
+# ============================================
+st.subheader("Download Current Forecast")
+
+if prediction is not None:
+    single_pred_df = pd.DataFrame({
+        "DATE": [selected_date],
+        "Predicted_Demand": [prediction]
+    })
+
+    st.download_button(
+        label=f"Download Forecast for {selected_date}",
+        data=single_pred_df.to_csv(index=False),
+        file_name=f"forecast_{selected_date}.csv",
+        mime="text/csv"
+    )
