@@ -124,3 +124,19 @@ if prediction is not None:
         file_name=f"forecast_{selected_date}.csv",
         mime="text/csv"
     )
+
+# ============================================
+# MODEL PERFORMANCE SECTION
+# ============================================
+st.markdown("---")
+st.header("Model Evaluation (2022 Test Set)")
+
+metrics_df = pd.read_csv("data/advanced_outputs/xgb_advanced_metrics.csv")
+
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric("MAE", f"{metrics_df['MAE'][0]:,.0f}")
+col2.metric("RMSE", f"{metrics_df['RMSE'][0]:,.0f}")
+col3.metric("R²", f"{metrics_df['R2'][0]:.4f}")
+col4.metric("MAPE (%)", f"{metrics_df['MAPE_%'][0]:.2f}")
+
