@@ -160,3 +160,19 @@ if model_choice == "XGBoost Multivariate":
     plt.tight_layout()
     st.pyplot(fig)
 
+# ============================================
+# ACTUAL VS PREDICTED PLOT
+# ============================================
+st.subheader("Actual vs Predicted (2022 Test Set)")
+
+pred_df = pd.read_csv(
+    "data/advanced_outputs/xgb_test_predictions.csv"
+)
+
+fig2, ax2 = plt.subplots()
+ax2.plot(pred_df["Actual"], label="Actual")
+ax2.plot(pred_df["Predicted"], label="Predicted")
+ax2.legend()
+plt.tight_layout()
+st.pyplot(fig2)
+
