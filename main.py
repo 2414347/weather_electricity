@@ -192,3 +192,15 @@ ax3.bar(
 )
 plt.tight_layout()
 st.pyplot(fig3)
+
+# ============================================
+# DOWNLOAD FULL EVALUATION
+# ============================================
+st.subheader("Download Full Evaluation Data")
+
+st.download_button(
+    label="Download 2022 Test Predictions",
+    data=pred_df.to_csv(index=False),
+    file_name="xgb_test_predictions_2022.csv",
+    mime="text/csv"
+)
