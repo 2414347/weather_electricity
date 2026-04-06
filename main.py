@@ -140,3 +140,23 @@ col2.metric("RMSE", f"{metrics_df['RMSE'][0]:,.0f}")
 col3.metric("R²", f"{metrics_df['R2'][0]:.4f}")
 col4.metric("MAPE (%)", f"{metrics_df['MAPE_%'][0]:.2f}")
 
+# ============================================
+# FEATURE IMPORTANCE
+# ============================================
+if model_choice == "XGBoost Multivariate":
+
+    st.subheader("Top 15 Feature Importance")
+
+    importance_df = pd.read_csv(
+        "data/advanced_outputs/feature_importance.csv"
+    ).head(15)
+
+    fig, ax = plt.subplots()
+    ax.barh(
+        importance_df["Feature"],
+        importance_df["Importance"]
+    )
+    ax.invert_yaxis()
+    plt.tight_layout()
+    st.pyplot(fig)
+
