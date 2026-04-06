@@ -176,3 +176,19 @@ ax2.legend()
 plt.tight_layout()
 st.pyplot(fig2)
 
+# ============================================
+# SEASONAL PERFORMANCE
+# ============================================
+st.subheader("Seasonal MAE (2022)")
+
+season_df = pd.read_csv(
+    "data/advanced_outputs/seasonal_mae.csv"
+)
+
+fig3, ax3 = plt.subplots()
+ax3.bar(
+    season_df["Season"],
+    season_df["MAE"]
+)
+plt.tight_layout()
+st.pyplot(fig3)
