@@ -1,3 +1,8 @@
+# ==========================================================
+# IMPORT REQUIRED LIBRARIES
+# Used for data handling, model loading, evaluation metrics,
+# visualization, and performance measurement.
+# ==========================================================
 import os
 import time
 import joblib
@@ -6,10 +11,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# ==============================
-# CONFIGURATION
-# ==============================
 
+# ==========================================================
+# CONFIGURATION SECTION
+# Defines file paths for dataset, trained model, and features.
+# Also creates directories for saving outputs and plots.
+# ==========================================================
 DATA_FILE = "data/processed/model_ready_daily_dataset.csv"
 MODEL_FILE = "models/xgb_multivariate.pkl"
 FEATURE_FILE = "models/feature_list.pkl"
@@ -17,6 +24,12 @@ FEATURE_FILE = "models/feature_list.pkl"
 os.makedirs("data/advanced_figures", exist_ok=True)
 os.makedirs("data/advanced_outputs", exist_ok=True)
 
+
+# ==========================================================
+# LOAD DATASET AND TRAINED MODEL
+# Loads the dataset, converts DATE column to datetime,
+# and loads the trained XGBoost model and feature list.
+# ==========================================================
 print("Loading dataset and model...")
 
 df = pd.read_csv(DATA_FILE)
@@ -27,37 +40,42 @@ features = joblib.load(FEATURE_FILE)
 
 target = "daily_demand"
 
-# ==============================
-# TEST SET (2022)
-# ==============================
 
+# ==========================================================
+# TEST SET PREPARATION (YEAR 2022)
+# Filters dataset to only include unseen test period.
+# ==========================================================
 test = df[(df["DATE"] >= "2022-01-01") & (df["DATE"] <= "2022-12-31")].copy()
 
 X_test = test[features]
 y_test = test[target]
 
-# ==============================
-# PREDICTION
-# ==============================
 
+# ==========================================================
+# MODEL PREDICTION + TIME MEASUREMENT
+# Measures inference speed of the trained model.
+# Saves predictions for further analysis.
+# ==========================================================
 start = time.time()
 y_pred = model.predict(X_test)
 end = time.time()
 
 prediction_time = end - start
 
-# Save predictions
 predictions_df = pd.DataFrame({
     "DATE": test["DATE"],
     "Actual": y_test,
     "Predicted": y_pred
 })
+
 predictions_df.to_csv("data/advanced_outputs/xgb_test_predictions.csv", index=False)
 
-# ==============================
-# METRICS
-# ==============================
 
+# ==========================================================
+# MODEL PERFORMANCE METRICS
+# Evaluates regression performance using standard metrics:
+# MAE, RMSE, R², and MAPE.
+# ==========================================================
 mae = mean_absolute_error(y_test, y_pred)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 r2 = r2_score(y_test, y_pred)
@@ -76,10 +94,11 @@ metrics_df.to_csv("data/advanced_outputs/xgb_advanced_metrics.csv", index=False)
 print("\nAdvanced Metrics:")
 print(metrics_df)
 
-# ==============================
-# ACTUAL VS PREDICTED
-# ==============================
 
+# ==========================================================
+# ACTUAL VS PREDICTED VISUALIZATION
+# Shows how closely predictions follow real demand values.
+# ==========================================================
 plt.figure()
 plt.plot(y_test.values)
 plt.plot(y_pred)
@@ -90,10 +109,12 @@ plt.tight_layout()
 plt.savefig("data/advanced_figures/actual_vs_predicted.png", dpi=300)
 plt.close()
 
-# ==============================
-# RESIDUAL PLOT
-# ==============================
 
+# ==========================================================
+# RESIDUAL ANALYSIS (ERROR PATTERN)
+# Residuals = Actual - Predicted
+# Used to check bias and model error structure.
+# ==========================================================
 residuals = y_test.values - y_pred
 
 plt.figure()
@@ -105,10 +126,11 @@ plt.tight_layout()
 plt.savefig("data/advanced_figures/residual_plot.png", dpi=300)
 plt.close()
 
-# ==============================
-# RESIDUAL DISTRIBUTION
-# ==============================
 
+# ==========================================================
+# RESIDUAL DISTRIBUTION ANALYSIS
+# Checks whether errors are normally distributed or skewed.
+# ==========================================================
 plt.figure()
 plt.hist(residuals, bins=30)
 plt.title("Residual Distribution")
@@ -118,10 +140,12 @@ plt.tight_layout()
 plt.savefig("data/advanced_figures/residual_distribution.png", dpi=300)
 plt.close()
 
-# ==============================
-# FEATURE IMPORTANCE
-# ==============================
 
+# ==========================================================
+# FEATURE IMPORTANCE ANALYSIS
+# Extracts contribution of each feature in XGBoost model.
+# Helps understand which variables drive predictions.
+# ==========================================================
 importances = model.feature_importances_
 
 importance_df = pd.DataFrame({
@@ -142,10 +166,12 @@ plt.tight_layout()
 plt.savefig("data/advanced_figures/feature_importance.png", dpi=300)
 plt.close()
 
-# ==============================
-# SEASONAL PERFORMANCE
-# ==============================
 
+# ==========================================================
+# SEASONAL PERFORMANCE ANALYSIS
+# Evaluates model error (MAE) across different seasons
+# to detect seasonal weaknesses in predictions.
+# ==========================================================
 test["Month"] = test["DATE"].dt.month
 
 def map_season(month):
@@ -162,14 +188,14 @@ test["Season"] = test["Month"].apply(map_season)
 
 season_results = []
 
-for season in ["Winter","Spring","Summer","Autumn"]:
+for season in ["Winter", "Spring", "Summer", "Autumn"]:
     mask = test["Season"] == season
     season_mae = mean_absolute_error(
         y_test[mask], y_pred[mask]
     )
     season_results.append([season, season_mae])
 
-season_df = pd.DataFrame(season_results, columns=["Season","MAE"])
+season_df = pd.DataFrame(season_results, columns=["Season", "MAE"])
 season_df.to_csv("data/advanced_outputs/seasonal_mae.csv", index=False)
 
 plt.figure()
@@ -181,6 +207,11 @@ plt.tight_layout()
 plt.savefig("data/advanced_figures/seasonal_mae.png", dpi=300)
 plt.close()
 
+
+# ==========================================================
+# FINAL STATUS MESSAGE
+# Confirms successful completion of all evaluation steps.
+# ==========================================================
 print("\nAll advanced evaluation outputs generated successfully.")
 print("Check folders:")
 print("data/advanced_figures/")
